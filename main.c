@@ -50,7 +50,7 @@ int main()
 		num4 = KeyPad_getPressedKey();
 		LCD_intgerToString(num4);
 		
-		while((GPIO_PORTF_DATA_R & 0x01) == 1)
+		while((GPIO_PORTF_DATA_R & 0x01) != 1)
 		{
 			// dy loop fadya hstnah bs yedos 3ala enter el howa el push button ...  
 		}
@@ -65,7 +65,7 @@ int main()
 			LCD_displayString("enter pass again");
 			main();
 		}
-		while((GPIO_PORTF_DATA_R & 0x10) == 1)
+		while((GPIO_PORTF_DATA_R & 0x10) != 1)
 		{
 			// hstnah yedos 3ala button2 ...keda howa 2afal el lock ..fa h2fel el led y3ny ...
 			CLEAR_BIT(GPIO_PORTF_DATA_R,1);   
